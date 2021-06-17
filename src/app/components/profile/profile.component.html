@@ -18,19 +18,8 @@
             <form class="form" #updateUserForm="ngForm" (ngSubmit)="OnSubmit()">
                 <div class="row ml-5 mb-2">
                     <div class="col-xsm">
-                        <!-- requirements for the input fied of the user name. 
-                            1 "required" fiels can not be empty 
-                            2 "minlength" given user name must at least have 4 characters 
-                            3 "forbiddenName" a user is not allowed to change the name to "Voldemord"
-                        -->
-                        <input type="text" class="form-control" placeholder="Fornavn" required minlength="4"
+                        <input type="text" class="form-control" placeholder="Fornavn" required
                             [(ngModel)]="user.firstname" #firstname="ngModel" name="firstname">
-                            
-                            <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert">
-                                <!-- below, consequneces for each requirement for what should happen if the requirements are not met-->
-                                <div *ngIf="firstname.errors?.required">Angiv et navn</div>
-                                <div *ngIf="firstname.errors?.minlength">Navnet skal vaere paa mindst 4 tegn</div>
-                            </div>
                     </div>
                     <div>
                         <input type="text" class="form-control ml-3" placeholder="Efternavn" required
